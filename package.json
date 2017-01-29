@@ -1,0 +1,21 @@
+{
+  "name": "typux-demo",
+  "version": "0.0.1",
+  "author": "Shvorak Alexey <dr.emerido@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-router": "^3.0.2",
+    "ts-loader": "^2.0.0",
+    "typux": "0.0.4",
+    "typux-redux": "^0.0.5",
+    "webpack": "next"
+  },
+  "devDependencies": {
+    "@types/react": "^15.0.4",
+    "@types/react-dom": "^0.14.21",
+    "@types/react-router": "^3.0.0",
+    "typescript": "^2.1.5"
+  }
+}
