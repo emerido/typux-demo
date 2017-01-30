@@ -1,12 +1,15 @@
 import * as React from 'react'
 import {Connect} from "../store/index";
-import {fetchUsers, addUser} from "../actions/users";
+import {fetchUsers, createUser} from "../actions/users";
+import {attachAction} from "typux-redux";
 
 @Connect(
-    (state) => ({users: state.users}),
+    (state) => ({
+        users: state.users
+    }),
     (dispatch) => ({
-        refresh : () => dispatch(fetchUsers()),
-        create : (id, name) => dispatch(addUser(id, name))
+        refresh : attachAction(dispatch, fetchUsers),
+        create : attachAction(dispatch, createUser)
     })
 )
 export class App extends React.Component<any, any> {
@@ -20,7 +23,7 @@ export class App extends React.Component<any, any> {
                 </div>
                 <div>
                     <button onClick={() => this.props.refresh()}>Refresh</button>
-                    <button onClick={() => this.props.create(2, 'ADmin')}>Add</button>
+                    <button onClick={() => this.props.create(2, 'Admin')}>Add</button>
                 </div>
                 {this.props.users.map(user => (
                     <li key={user.id}>{user.name}</li>

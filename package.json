@@ -9,7 +9,7 @@
     "react-router": "^3.0.2",
     "ts-loader": "^2.0.0",
     "typux": "0.0.4",
-    "typux-redux": "^0.0.5",
+    "typux-redux": "^0.0.7",
     "webpack": "next"
   },
   "devDependencies": {

@@ -1779,9 +1779,9 @@ typescript@^2.1.5:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.1.5.tgz#6fe9479e00e01855247cea216e7561bafcdbcd4a"
 
-typux-redux@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/typux-redux/-/typux-redux-0.0.5.tgz#f6b37f2e9a3da04cdd84faf695b798ef7241fcd6"
+typux-redux@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/typux-redux/-/typux-redux-0.0.7.tgz#1afb1ab4a112c9832ea931525b11d84bf8bf270a"
   dependencies:
     "@types/react-redux" "^4.4.36"
     "@types/redux" "^3.6.0"

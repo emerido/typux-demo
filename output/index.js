@@ -13073,6 +13073,8 @@ function warning(message) {
 
 "use strict";
 
+var actions_1 = __webpack_require__(284);
+exports.attachAction = actions_1.attachAction;
 var connect_1 = __webpack_require__(276);
 exports.createConnect = connect_1.createConnect;
 var reducer_1 = __webpack_require__(278);
@@ -28665,6 +28667,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var React = __webpack_require__(5);
 var index_1 = __webpack_require__(75);
 var users_1 = __webpack_require__(282);
+var typux_redux_1 = __webpack_require__(125);
 var App = (function (_super) {
     __extends(App, _super);
     function App() {
@@ -28678,16 +28681,18 @@ var App = (function (_super) {
                 React.createElement("input", { type: "text" })),
             React.createElement("div", null,
                 React.createElement("button", { onClick: function () { return _this.props.refresh(); } }, "Refresh"),
-                React.createElement("button", { onClick: function () { return _this.props.create(2, 'ADmin'); } }, "Add")),
+                React.createElement("button", { onClick: function () { return _this.props.create(2, 'Admin'); } }, "Add")),
             this.props.users.map(function (user) { return (React.createElement("li", { key: user.id }, user.name)); }),
             this.props.children));
     };
     return App;
 }(React.Component));
 App = __decorate([
-    index_1.Connect(function (state) { return ({ users: state.users }); }, function (dispatch) { return ({
-        refresh: function () { return dispatch(users_1.fetchUsers()); },
-        create: function (id, name) { return dispatch(users_1.addUser(id, name)); }
+    index_1.Connect(function (state) { return ({
+        users: state.users
+    }); }, function (dispatch) { return ({
+        refresh: typux_redux_1.attachAction(dispatch, users_1.fetchUsers),
+        create: typux_redux_1.attachAction(dispatch, users_1.createUser)
     }); })
 ], App);
 exports.App = App;
@@ -28702,12 +28707,15 @@ exports.App = App;
 var typux_redux_1 = __webpack_require__(125);
 var users_1 = __webpack_require__(283);
 exports.users = typux_redux_1.createReducer()
-    .on('FETCH_USERS', function (x) { return (x); })
-    .on(users_1.AddUser, function (state, data) { return (state.concat([{ id: data.id, name: data.name }])); })
+    .on(users_1.CreateUser, function (state, data) { return (state.concat([{ id: data.id, name: data.name }])); })
     .initial([
     {
         id: 1,
-        name: 'alex'
+        name: 'Alex'
+    },
+    {
+        id: 99,
+        name: 'God'
     }
 ])
     .reducer();
@@ -28915,7 +28923,8 @@ var users_1 = __webpack_require__(283);
 exports.fetchUsers = function () { return ({
     type: 'FETCH_USERS'
 }); };
-exports.addUser = function (id, name) { return new users_1.AddUser(id, name); };
+exports.createUser = function (id, name) { return (new users_1.CreateUser(id, name)); };
+exports.deleteUser = function (id) { return (new users_1.DeleteUser(id)); };
 
 
 /***/ }),
@@ -28934,18 +28943,48 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var typux_1 = __webpack_require__(126);
-var AddUser = (function () {
-    function AddUser(id, name) {
+var CreateUser = (function () {
+    function CreateUser(id, name) {
         this.id = id;
         this.name = name;
     }
-    return AddUser;
+    return CreateUser;
 }());
-AddUser = __decorate([
-    typux_1.Action('ADD_USER'),
+CreateUser = __decorate([
+    typux_1.Action('USER_CREATE'),
     __metadata("design:paramtypes", [Number, String])
-], AddUser);
-exports.AddUser = AddUser;
+], CreateUser);
+exports.CreateUser = CreateUser;
+var DeleteUser = (function () {
+    function DeleteUser(id) {
+        this.id = id;
+    }
+    return DeleteUser;
+}());
+DeleteUser = __decorate([
+    typux_1.Action('USER_DELETE'),
+    __metadata("design:paramtypes", [Number])
+], DeleteUser);
+exports.DeleteUser = DeleteUser;
+
+
+/***/ }),
+/* 284 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+function attachAction(dispatch, action) {
+    function wrapper() {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i - 0] = arguments[_i];
+        }
+        return dispatch(action.apply(null, args));
+    }
+    return wrapper;
+}
+exports.attachAction = attachAction;
 
 
 /***/ })

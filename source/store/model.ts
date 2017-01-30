@@ -7,4 +7,8 @@ export interface IState
 export interface IMember
 {
 
+    id : number;
+
+    name : string;
+
 }

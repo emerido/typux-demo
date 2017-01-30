@@ -1,16 +1,19 @@
 import {Action} from "typux";
 
-@Action('ADD_USER')
-export class AddUser
+@Action('USER_CREATE')
+export class CreateUser
 {
 
-    id : number;
+    constructor(public id: number, public name: string) {
+    }
 
-    name : string;
+}
 
-    constructor(id: number, name: string) {
-        this.id = id;
-        this.name = name;
+@Action('USER_DELETE')
+export class DeleteUser
+{
+
+    constructor(public id : number) {
     }
 
 }

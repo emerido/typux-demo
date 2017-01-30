@@ -1,7 +1,13 @@
-import {AddUser} from "../messages/users";
+import {CreateUser, DeleteUser} from "../messages/users";
 
 export const fetchUsers = () => ({
     type : 'FETCH_USERS'
 });
 
-export const addUser = (id : number, name : string) => new AddUser(id, name);
+export const createUser = (id : number, name : string) => (
+    new CreateUser(id, name)
+);
+
+export const deleteUser = (id : number) => (
+    new DeleteUser(id)
+);
