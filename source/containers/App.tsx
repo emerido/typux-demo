@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Connect} from "../store/index";
-import {fetchUsers, createUser} from "../actions/users";
+import {fetchUsers, createUser, deleteUser} from "../actions/users";
 import {attachAction} from "typux-redux";
 
 @Connect(
@@ -9,6 +9,7 @@ import {attachAction} from "typux-redux";
     }),
     (dispatch) => ({
         refresh : attachAction(dispatch, fetchUsers),
+        remove : attachAction(dispatch, deleteUser),
         create : attachAction(dispatch, createUser)
     })
 )
@@ -24,6 +25,7 @@ export class App extends React.Component<any, any> {
                 <div>
                     <button onClick={() => this.props.refresh()}>Refresh</button>
                     <button onClick={() => this.props.create(2, 'Admin')}>Add</button>
+                    <button onClick={() => this.props.remove(2)}>Remove</button>
                 </div>
                 {this.props.users.map(user => (
                     <li key={user.id}>{user.name}</li>

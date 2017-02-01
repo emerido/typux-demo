@@ -1,5 +1,7 @@
 import {Action} from "typux";
+import {Http, HttpMethod} from "typux-http/lib";
 
+@Http('/api/users', HttpMethod.POST)
 @Action('USER_CREATE')
 export class CreateUser
 {
@@ -9,6 +11,7 @@ export class CreateUser
 
 }
 
+@Http('/api/users', HttpMethod.DELETE)
 @Action('USER_DELETE')
 export class DeleteUser
 {

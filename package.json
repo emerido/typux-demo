@@ -3,13 +3,18 @@
   "version": "0.0.1",
   "author": "Shvorak Alexey <dr.emerido@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "develop": "webpack --watch"
+  },
   "dependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router": "^3.0.2",
     "ts-loader": "^2.0.0",
-    "typux": "0.0.4",
-    "typux-redux": "^0.0.7",
+    "typux": "^0.0.5",
+    "typux-http": "^0.0.3",
+    "typux-redux": "^0.0.9",
     "webpack": "next"
   },
   "devDependencies": {

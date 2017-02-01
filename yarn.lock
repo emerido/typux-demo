@@ -7,17 +7,10 @@
   resolved "https://registry.yarnpkg.com/@types/history/-/history-2.0.45.tgz#c76d79a65d189220d9d50f62e0143bdac30a564b"
 
 "@types/react-dom@^0.14.21":
-  version "0.14.21"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-0.14.21.tgz#a97e82d85e6802c7bb8b527746c54013b209ce09"
+  version "0.14.22"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-0.14.22.tgz#a9a9d2c1461dda668a8bbaef8d62f6abc7d6b9bd"
   dependencies:
     "@types/react" "*"
-
-"@types/react-redux@^4.4.36":
-  version "4.4.36"
-  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-4.4.36.tgz#5d1e768f3291c66c8e54d8a48e42f7cb554a7d87"
-  dependencies:
-    "@types/react" "*"
-    redux "^3.6.0"
 
 "@types/react-router@^3.0.0":
   version "3.0.0"
@@ -27,12 +20,18 @@
     "@types/react" "*"
 
 "@types/react@*", "@types/react@^15.0.4":
-  version "15.0.4"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-15.0.4.tgz#97aedbba00448a137331aa8450232124aeb8d426"
+  version "15.0.6"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-15.0.6.tgz#c76083c1abec8e1371be79527daa7e404ae6fc62"
 
-"@types/redux@^3.6.0":
-  version "3.6.31"
-  resolved "https://registry.yarnpkg.com/@types/redux/-/redux-3.6.31.tgz#40eafa7575db36b912ce0059b85de98c205b0708"
+"@types/whatwg-fetch@^0.0.33":
+  version "0.0.33"
+  resolved "https://registry.yarnpkg.com/@types/whatwg-fetch/-/whatwg-fetch-0.0.33.tgz#19c0d2863c8cb2380f21a1c736b79cbf7895bb13"
+  dependencies:
+    "@types/whatwg-streams" "*"
+
+"@types/whatwg-streams@*":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@types/whatwg-streams/-/whatwg-streams-0.0.2.tgz#58eb11cf9ab33a2b55878d568ad7e9b933e67f7d"
 
 abbrev@1:
   version "1.0.9"
@@ -597,8 +596,8 @@ extsprintf@1.0.2:
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.0.2.tgz#e1080e0658e300b06294990cc70e1502235fd550"
 
 fbjs@^0.8.1, fbjs@^0.8.4:
-  version "0.8.8"
-  resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.8.tgz#02f1b6e0ea0d46c24e0b51a2d24df069563a5ad6"
+  version "0.8.9"
+  resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.9.tgz#180247fbd347dcc9004517b904f865400a0c8f14"
   dependencies:
     core-js "^1.0.0"
     isomorphic-fetch "^2.1.1"
@@ -978,8 +977,8 @@ jodid25519@^1.0.0:
     jsbn "~0.1.0"
 
 js-tokens@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.0.tgz#a2f2a969caae142fb3cd56228358c89366957bd1"
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.1.tgz#08e9f132484a2c45a30907e9dc4d5567b7f114d7"
 
 jsbn@~0.1.0:
   version "0.1.0"
@@ -1049,7 +1048,7 @@ load-json-file@^1.0.0:
     pinkie-promise "^2.0.0"
     strip-bom "^2.0.0"
 
-loader-runner@^2.2.0:
+loader-runner@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.3.0.tgz#f482aea82d543e07921700d5a46ef26fdac6b8a2"
 
@@ -1779,19 +1778,26 @@ typescript@^2.1.5:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.1.5.tgz#6fe9479e00e01855247cea216e7561bafcdbcd4a"
 
-typux-redux@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/typux-redux/-/typux-redux-0.0.7.tgz#1afb1ab4a112c9832ea931525b11d84bf8bf270a"
+typux-http@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/typux-http/-/typux-http-0.0.3.tgz#14505c93951fe73f2ea4731c819217307c0db648"
   dependencies:
-    "@types/react-redux" "^4.4.36"
-    "@types/redux" "^3.6.0"
+    "@types/whatwg-fetch" "^0.0.33"
+    redux "^3.6.0"
+    typux "^0.0.5"
+    whatwg-fetch "^2.0.2"
+
+typux-redux@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/typux-redux/-/typux-redux-0.0.9.tgz#588281edcee857712a0ae2de304d72a406847df0"
+  dependencies:
     react-redux "^5.0.2"
     redux "^3.6.0"
-    typux "^0.0.4"
+    typux "^0.0.5"
 
-typux@0.0.4, typux@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/typux/-/typux-0.0.4.tgz#218a7fef3119e8ef243d4352f990c4e8cc80f9a0"
+typux@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/typux/-/typux-0.0.5.tgz#ad8b2403c0d6b4653c33066ef6b66a78e7834e87"
 
 ua-parser-js@^0.7.9:
   version "0.7.12"
@@ -1876,8 +1882,8 @@ webpack-sources@^0.1.4:
     source-map "~0.5.3"
 
 webpack@next:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-2.2.0.tgz#09246336b5581c9002353f75bcadb598a648f977"
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-2.2.1.tgz#7bb1d72ae2087dd1a4af526afec15eed17dda475"
   dependencies:
     acorn "^4.0.4"
     acorn-dynamic-import "^2.0.0"
@@ -1887,7 +1893,7 @@ webpack@next:
     enhanced-resolve "^3.0.0"
     interpret "^1.0.0"
     json-loader "^0.5.4"
-    loader-runner "^2.2.0"
+    loader-runner "^2.3.0"
     loader-utils "^0.2.16"
     memory-fs "~0.4.1"
     mkdirp "~0.5.0"
@@ -1900,7 +1906,7 @@ webpack@next:
     webpack-sources "^0.1.4"
     yargs "^6.0.0"
 
-whatwg-fetch@>=0.10.0:
+whatwg-fetch@>=0.10.0, whatwg-fetch@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-2.0.2.tgz#fe294d1d89e36c5be8b3195057f2e4bc74fc980e"
 
