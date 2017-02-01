@@ -13218,7 +13218,7 @@ var DeleteUser = (function () {
     return DeleteUser;
 }());
 DeleteUser = __decorate([
-    lib_1.Http('/api/users', lib_1.HttpMethod.DELETE),
+    lib_1.Http('/api/users/{id}', lib_1.HttpMethod.DELETE),
     typux_1.Action('USER_DELETE'),
     __metadata("design:paramtypes", [Number])
 ], DeleteUser);
@@ -29166,10 +29166,12 @@ var HTTP = Symbol('typux.http');
 var HttpMethod;
 (function (HttpMethod) {
     HttpMethod[HttpMethod["GET"] = 0] = "GET";
-    HttpMethod[HttpMethod["POST"] = 1] = "POST";
-    HttpMethod[HttpMethod["PUT"] = 2] = "PUT";
-    HttpMethod[HttpMethod["DELETE"] = 3] = "DELETE";
-    HttpMethod[HttpMethod["OPTIONS"] = 4] = "OPTIONS";
+    HttpMethod[HttpMethod["PUT"] = 1] = "PUT";
+    HttpMethod[HttpMethod["HEAD"] = 2] = "HEAD";
+    HttpMethod[HttpMethod["POST"] = 3] = "POST";
+    HttpMethod[HttpMethod["PATCH"] = 4] = "PATCH";
+    HttpMethod[HttpMethod["DELETE"] = 5] = "DELETE";
+    HttpMethod[HttpMethod["OPTIONS"] = 6] = "OPTIONS";
 })(HttpMethod = exports.HttpMethod || (exports.HttpMethod = {}));
 var HttpOptions = (function () {
     function HttpOptions() {
@@ -29234,15 +29236,31 @@ function typuxHttpMiddleware(options) {
     return function (store) { return function (next) { return function (action) {
         if (action.data && decorators_1.hasHttpOptions(action.data)) {
             var options_1 = decorators_1.getHttpOptions(action.data);
-            var promise = fetch(options_1.url, {
-                method: decorators_1.HttpMethod[options_1.method].toUpperCase()
+            var endpoint = templateUrl(options_1.url, action.data);
+            var payload_1 = new FormData();
+            Object.keys(action.data).forEach(function (key) {
+                // TODO : Check property options
+                payload_1.append(key, action.data[key]);
             });
-            promise.catch(function (x) { return console.log('Http Error', x); });
+            var request = new Request(endpoint, {
+                method: decorators_1.HttpMethod[options_1.method].toUpperCase(),
+                body: payload_1
+            });
+            var promise = fetch(request)
+                .catch(function (x) { return console.log('Http Error', x); });
         }
         next(action);
     }; }; };
 }
 exports.typuxHttpMiddleware = typuxHttpMiddleware;
+function templateUrl(url, data) {
+    return url.replace(/\{(.+?)\}/g, function (_, match) {
+        if (data.hasOwnProperty(match)) {
+            return data[match];
+        }
+        return _;
+    });
+}
 
 
 /***/ }),

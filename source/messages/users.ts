@@ -11,7 +11,7 @@ export class CreateUser
 
 }
 
-@Http('/api/users', HttpMethod.DELETE)
+@Http('/api/users/{id}', HttpMethod.DELETE)
 @Action('USER_DELETE')
 export class DeleteUser
 {

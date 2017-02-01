@@ -13,7 +13,7 @@
     "react-router": "^3.0.2",
     "ts-loader": "^2.0.0",
     "typux": "^0.0.5",
-    "typux-http": "^0.0.3",
+    "typux-http": "^0.0.4",
     "typux-redux": "^0.0.9",
     "webpack": "next"
   },

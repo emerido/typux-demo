@@ -1778,9 +1778,9 @@ typescript@^2.1.5:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.1.5.tgz#6fe9479e00e01855247cea216e7561bafcdbcd4a"
 
-typux-http@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/typux-http/-/typux-http-0.0.3.tgz#14505c93951fe73f2ea4731c819217307c0db648"
+typux-http@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/typux-http/-/typux-http-0.0.4.tgz#62996412753b9ea28c13d0f1ec17f49fdc5945fe"
   dependencies:
     "@types/whatwg-fetch" "^0.0.33"
     redux "^3.6.0"
