@@ -5,7 +5,7 @@ export const fetchUsers = () => ({
 });
 
 export const createUser = (id : number, name : string) => (
-    new CreateUser(id, name)
+    new CreateUser(id, name, 'test@test.com')
 );
 
 export const deleteUser = (id : number) => (

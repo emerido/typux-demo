@@ -1,17 +1,37 @@
 import {Action} from "typux";
-import {Http, HttpMethod} from "typux-http/lib";
+import {Delete, Post, HttpParam, HttpOptionPlace} from "typux-http";
 
-@Http('/api/users', HttpMethod.POST)
-@Action('USER_CREATE')
-export class CreateUser
+export class User
 {
 
-    constructor(public id: number, public name: string) {
+    @HttpParam(HttpOptionPlace.Body)
+    public email : string;
+
+    constructor(email: string) {
+        this.email = email;
+    }
+}
+
+@Post('/api/users')
+@Action('USER_CREATE')
+export class CreateUser extends User
+{
+
+    @HttpParam(HttpOptionPlace.Query)
+    public id: number;
+
+    @HttpParam(HttpOptionPlace.Body)
+    public name: string;
+
+    constructor(id: number, name: string, email : string) {
+        super(email);
+        this.id = id;
+        this.name = name;
     }
 
 }
 
-@Http('/api/users/{id}', HttpMethod.DELETE)
+@Delete('/api/users/{id}')
 @Action('USER_DELETE')
 export class DeleteUser
 {

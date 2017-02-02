@@ -13,7 +13,7 @@
     "react-router": "^3.0.2",
     "ts-loader": "^2.0.0",
     "typux": "^0.0.5",
-    "typux-http": "^0.0.4",
+    "typux-http": "^0.0.7",
     "typux-redux": "^0.0.9",
     "webpack": "next"
   },
@@ -21,6 +21,8 @@
     "@types/react": "^15.0.4",
     "@types/react-dom": "^0.14.21",
     "@types/react-router": "^3.0.0",
-    "typescript": "^2.1.5"
+    "typescript": "^2.1.5",
+    "uglify-js": "^2.7.5",
+    "uglifyjs-webpack-plugin": "^0.1.3"
   }
 }
