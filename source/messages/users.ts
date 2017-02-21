@@ -1,10 +1,10 @@
-import {Action} from "typux";
-import {Delete, Post, HttpParam, HttpOptionPlace} from "typux-http";
+import {Action} from "typux-redux";
+import {HttpPost, HttpDelete, Query, Body} from "typux-http";
 
 export class User
 {
 
-    @HttpParam(HttpOptionPlace.Body)
+    @Body()
     public email : string;
 
     constructor(email: string) {
@@ -12,15 +12,15 @@ export class User
     }
 }
 
-@Post('/api/users')
+@HttpPost('/api/users')
 @Action('USER_CREATE')
 export class CreateUser extends User
 {
 
-    @HttpParam(HttpOptionPlace.Query)
+    @Query()
     public id: number;
 
-    @HttpParam(HttpOptionPlace.Body)
+    @Body()
     public name: string;
 
     constructor(id: number, name: string, email : string) {
@@ -31,7 +31,7 @@ export class CreateUser extends User
 
 }
 
-@Delete('/api/users/{id}')
+@HttpDelete('/api/users/{id}')
 @Action('USER_DELETE')
 export class DeleteUser
 {

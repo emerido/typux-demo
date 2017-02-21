@@ -2,7 +2,7 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {createConnect, typuxMiddleware} from "typux-redux";
 import {IState} from "./model";
 import {users} from "../reducers/users";
-import {typuxHttpMiddleware} from "typux-http/lib";
+import {reduxHttpMiddleware} from "typux-http";
 
 
 const logger = store => next => action => {
@@ -17,15 +17,10 @@ export const store = createStore<IState>(
     }),
     applyMiddleware(
         typuxMiddleware(),
-        typuxHttpMiddleware(),
+        reduxHttpMiddleware(),
         logger
     )
 );
 
-
-
-store.subscribe(() => {
-    console.log(store.getState());
-});
 
 export const Connect = createConnect<IState>();
